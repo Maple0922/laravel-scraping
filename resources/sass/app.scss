@@ -1,0 +1,25 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Vuetify
+@import "~vuetify/dist/vuetify.min.css";
+
+// Styles
+nav.navbar {
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+}
+
+main {
+    padding-top: 80px;
+    overflow-y: hidden;
+    max-height: calc(100vh - 80px);
+}
