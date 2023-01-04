@@ -90,8 +90,6 @@ class ScrapeOldRookieSauna extends Command
             "attachments" => array(array("text" => $text, "color" => $color))
         ];
 
-        \Log::channel('single')->emergency($text);
-
         $url = "https://hooks.slack.com/services/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";
 
         $messageJson = json_encode($message);
