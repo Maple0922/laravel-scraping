@@ -53,8 +53,6 @@ class ScrapeOldRookieSauna extends Command
         $str = json_decode($json)->str;
         $text = $this->generate($str);
 
-        \Log::channel('single')->emergency($text);
-
         $count = 0;
         $color = $this->color($count);
 
@@ -67,9 +65,6 @@ class ScrapeOldRookieSauna extends Command
             ->filter(fn ($_, $key) => in_array($key, [3, 6, 9]))
             ->values()
             ->map(fn ($item) => Str::before(Str::afterLast($item, "お客様"), "名"))
-            ->each(function ($item) {
-                \Log::channel('single')->emergency($item);
-            })
             ->map(
                 fn ($count, $index) =>
                 Str::contains($count, '営業時間外')
@@ -94,6 +89,8 @@ class ScrapeOldRookieSauna extends Command
             "icon_emoji" => ":old_rookie_sauna:",
             "attachments" => array(array("text" => $text, "color" => $color))
         ];
+
+        \Log::channel('single')->emergency($text);
 
         $url = "https://hooks.slack.com/services/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";
 
