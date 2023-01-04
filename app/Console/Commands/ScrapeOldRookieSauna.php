@@ -90,7 +90,7 @@ class ScrapeOldRookieSauna extends Command
             "attachments" => array(array("text" => $text, "color" => $color))
         ];
 
-        $url = "https://hooks.slack.com/services/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";
+        $url = "https://hooks.slack.com/services/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";
 
         $messageJson = json_encode($message);
         $messagePost = "payload=" . urlencode($messageJson);
